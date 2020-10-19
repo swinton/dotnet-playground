@@ -13,25 +13,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Composite test
-      uses: ./
-
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
 
-    - name: Install dotnetsay
-      run: |
-        dotnet tool install -g dotnetsay
-
-    # - name: Install Octopus CLI
-    #   run: |
-    #     dotnet tool install --global Octopus.DotNet.Cli --version 7.4.2
-
-    - name: Run dotnetsay
-      run: |
-        dotnetsay
+    - name: Install Octopus CLI
+      uses: ./
 
     # - name: Run dotnetsay
     #   if: ${{ runner.os == 'Linux' || runner.os == 'macOS' }}

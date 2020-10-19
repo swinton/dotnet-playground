@@ -5,5 +5,5 @@ runs:
   using: composite
   steps:
   - run: |
-      echo ohai
+      dotnet tool install --global Octopus.DotNet.Cli --version 7.4.2
     shell: bash
