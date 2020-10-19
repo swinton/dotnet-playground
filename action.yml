@@ -1,9 +1,14 @@
 # https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/creating-a-composite-run-steps-action
 name: .Net Playground
 description: A .Net Playground
+inputs:
+  version:
+    description: Version to install
+    required: true
 runs:
   using: composite
   steps:
   - run: |
-      dotnet tool install --global Octopus.DotNet.Cli --version 7.4.2
+      dotnet tool install --global Octopus.DotNet.Cli --version ${{ inputs.version }}
+      dotnet-octo version
     shell: bash
