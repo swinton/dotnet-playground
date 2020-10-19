@@ -10,5 +10,4 @@ runs:
   steps:
   - run: |
       dotnet tool install --global Octopus.DotNet.Cli --version ${{ inputs.version }}
-      dotnet-octo version
     shell: bash

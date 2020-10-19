@@ -22,3 +22,7 @@ jobs:
       uses: ./
       with:
         version: 7.4.2
+
+    - name: Run Octopus CLI
+      run: |
+        dotnet-octo version
