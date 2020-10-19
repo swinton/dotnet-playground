@@ -1,0 +1,16 @@
+name: dotnet playground
+
+on:
+  push:
+
+jobs:
+  dotnet-playground:
+    name: dotnet playground
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-18.04]
+    steps:
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
