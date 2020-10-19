@@ -11,8 +11,25 @@ jobs:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-18.04]
     steps:
-    - uses: actions/setup-dotnet@v1
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
-    - run: |
+
+    - name: Install dotnetsay
+      run: |
         dotnet tool install -g dotnetsay
+
+    # - name: Install Octopus CLI
+    #   run: |
+    #     dotnet tool install --global Octopus.DotNet.Cli --version 7.4.2
+
+    - name: Run dotnetsay
+      if: ${{ ! runner.os == 'Windows' }}
+      run: |
+        $HOME/.dotnet/tools/dotnetsay
+
+    - name: Run dotnetsay (Windows)
+      if: ${{ runner.os == 'Windows' }}
+      run: |
+        %USERPROFILE%\.dotnet\tools\dotnetsay
