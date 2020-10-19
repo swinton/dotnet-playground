@@ -25,11 +25,15 @@ jobs:
     #     dotnet tool install --global Octopus.DotNet.Cli --version 7.4.2
 
     - name: Run dotnetsay
-      if: ${{ ! runner.os == 'Windows' }}
       run: |
-        $HOME/.dotnet/tools/dotnetsay
+        dotnetsay
 
-    - name: Run dotnetsay (Windows)
-      if: ${{ runner.os == 'Windows' }}
-      run: |
-        %USERPROFILE%\.dotnet\tools\dotnetsay
+    # - name: Run dotnetsay
+    #   if: ${{ runner.os == 'Linux' || runner.os == 'macOS' }}
+    #   run: |
+    #     $HOME/.dotnet/tools/dotnetsay
+
+    # - name: Run dotnetsay (Windows)
+    #   if: ${{ runner.os == 'Windows' }}
+    #   run: |
+    #     %USERPROFILE%\.dotnet\tools\dotnetsay
