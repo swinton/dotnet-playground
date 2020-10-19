@@ -1,0 +1,9 @@
+# https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/creating-a-composite-run-steps-action
+name: .Net Playground
+description: A .Net Playground
+runs:
+  using: composite
+  steps:
+  - run: |
+      echo ohai
+    shell: bash
