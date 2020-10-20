@@ -25,4 +25,4 @@ jobs:
 
     - name: Run Octopus CLI
       run: |
-        dotnet-octo version
+        octo version

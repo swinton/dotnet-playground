@@ -11,3 +11,8 @@ runs:
   - run: |
       dotnet tool install --global Octopus.DotNet.Cli --version ${{ inputs.version }}
     shell: bash
+  - run: |
+      mkdir -p "$RUNNER_TMP/dotnet-octo/bin"
+      cp ./octo "$RUNNER_TMP/dotnet-octo/bin"
+      echo "$RUNNER_TMP/dotnet-octo/bin" >> $GITHUB_PATH
+    shell: bash
