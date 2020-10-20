@@ -11,3 +11,6 @@ runs:
   - run: |
       dotnet tool install --global Octopus.DotNet.Cli --version ${{ inputs.version }}
     shell: bash
+  - run:
+      go run main.go
+    shell: bash
